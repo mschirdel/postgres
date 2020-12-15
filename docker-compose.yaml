@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  infill-postgres:
+    image: my-postgres:10.7
+    restart: always
+    privileged: true
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - "45432:5432" #make sure the host port is open !!!
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: MyPassword
+      POSTGRES_USER: MyUser
+      POSTGRES_DB: MyData
