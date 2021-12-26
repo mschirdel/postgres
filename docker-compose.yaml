@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  infill-postgres:
-    image: my-postgres:10.7
+  postgres:
+    image: postgres:10.7
     restart: always
     privileged: true
     build:
